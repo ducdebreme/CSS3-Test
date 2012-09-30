@@ -1,0 +1,39 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3/images";
+@import "compass/utilities";
+@import "compass/css3";
+
+$button-color: #449944;
+$button-color-light: scale-lightness($button-color, 30%);
+$button-shadow: 4em;
+$button-font-color: white;
+
+.button {
+	display: inline-block;
+	padding: 1em 2em;
+	
+	@include background(linear-gradient(color-stops($button-color, scale-lightness($button-color,30%) 49%, $button-color 50%, $button-color-light)));
+	@include border-radius(0.5em);
+	@include box-shadow(#777 0 0 $button-shadow);
+	color: $button-font-color; 
+	position: absolute;
+}
+
+.button:hover {
+	color: shade($button-font-color, 80%);
+	@include box-shadow(shade($button-color,50%) 0px 0px $button-shadow);
+	@include background(linear-gradient(color-stops($button-color-light, scale-lightness($button-color-light,30%) 49%, $button-color-light 50%, $button-color-light)));
+	
+	/* padding: 1.2em 2.4em; */
+ 	@include transition-property(left);
+  	@include transition-duration(0.2s);
+ 	@include transition-timing-function(easeInElastic);
+	left: 1em;
+}
+
+
